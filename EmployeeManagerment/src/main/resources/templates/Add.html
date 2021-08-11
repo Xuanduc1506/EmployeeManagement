@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/Add}" method="post">
+
+    id:<input type="text"  name="id" ><br>
+    name:<input type="text" name="name" ><br>
+    gender: <input type="radio" name="gender" value="True" ><input type="radio" name="gender" value="False" ><br>
+    Department:<select name="department">
+
+    <span th:each="d:${departments}">
+        <option th:text="*{d.name}" th:value="*{d.id}"></option>
+    </span>
+
+</select>
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

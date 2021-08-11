@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>department</th>
+        <th>action</th>
+    </tr>
+    <span th:each="d:${departments}">
+        <tr th:each="e:*{d.employees}">
+            <td th:text="*{e.id}"></td>
+            <td th:text="*{e.name}"></td>
+            <td th:text="*{e.gender}"></td>
+            <td th:text="*{d.name}"></td>
+            <td>
+                <a th:href="@{'/Delete?id='+*{e.id}}"><button>DELETE</button></a>
+                <a th:href="@{'/Edit?id='+*{e.id}}"><button>EDIT</button></a>
+            </td>
+        </tr>
+    </span>
+</table>
+<a th:href="@{/Add}"><button>ADD</button></a>
+
+
+
+</body>
+</html>
